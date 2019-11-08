@@ -13,6 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group([], function () {
+    Route::post('login', 'AuthenticationController@login');
+    Route::get('logout', 'AuthenticationController@logout');
+    Route::post('register', 'AuthenticationController@register');
+    Route::get('captcha', 'AuthenticationController@getCaptcha');
 });
